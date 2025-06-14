@@ -75,97 +75,97 @@ preprocessor = Pipeline([
 
 # Define ALL Models with Parameter Grids
 
-
+# Define ALL Models with Parameter Grid
 models = {
     # ========== Linear Models ==========
     'Linear Regression': {
         'model': LinearRegression(),
         'params': {
-            'model__fit_intercept': [True, False],
-            'model__positive': [True, False]
+            'fit_intercept': [True, False],
+            'positive': [True, False]
         }
     },
 
     'Ridge Regression': {
         'model': Ridge(random_state=42),
         'params': {
-            'model__alpha': [0.1, 0.5, 1.0, 2.0, 5.0],
-            'model__solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']
+            'alpha': [0.1, 0.5, 1.0, 2.0, 5.0],
+            'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']
         }
     },
 
     'Lasso Regression': {
         'model': Lasso(random_state=42),
         'params': {
-            'model__alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],
-            'model__selection': ['cyclic', 'random']
+            'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],
+            'selection': ['cyclic', 'random']
         }
     },
 
     'ElasticNet': {
         'model': ElasticNet(random_state=42),
         'params': {
-            'model__alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],
-            'model__l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9],
-            'model__selection': ['cyclic', 'random']
+            'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],
+            'l1_ratio': [0.1, 0.3, 0.5, 0.7, 0.9],
+            'selection': ['cyclic', 'random']
         }
     },
 
     'Bayesian Ridge': {
         'model': BayesianRidge(),
         'params': {
-            'model__alpha_1': [1e-6, 1e-5, 1e-4],
-            'model__alpha_2': [1e-6, 1e-5, 1e-4],
-            'model__lambda_1': [1e-6, 1e-5, 1e-4],
-            'model__lambda_2': [1e-6, 1e-5, 1e-4]
+            'alpha_1': [1e-6, 1e-5, 1e-4],
+            'alpha_2': [1e-6, 1e-5, 1e-4],
+            'lambda_1': [1e-6, 1e-5, 1e-4],
+            'lambda_2': [1e-6, 1e-5, 1e-4]
         }
     },
 
     'ARD Regression': {
         'model': ARDRegression(),
         'params': {
-            'model__alpha_1': [1e-6, 1e-5, 1e-4],
-            'model__alpha_2': [1e-6, 1e-5, 1e-4],
-            'model__lambda_1': [1e-6, 1e-5, 1e-4],
-            'model__lambda_2': [1e-6, 1e-5, 1e-4],
-            'model__threshold_lambda': [100, 1000, 10000]
+            'alpha_1': [1e-6, 1e-5, 1e-4],
+            'alpha_2': [1e-6, 1e-5, 1e-4],
+            'lambda_1': [1e-6, 1e-5, 1e-4],
+            'lambda_2': [1e-6, 1e-5, 1e-4],
+            'threshold_lambda': [100, 1000, 10000]
         }
     },
 
     'SGD Regressor': {
         'model': SGDRegressor(random_state=42),
         'params': {
-            'model__loss': ['squared_error', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'],
-            'model__penalty': ['l1', 'l2', 'elasticnet'],
-            'model__alpha': [0.0001, 0.001, 0.01],
-            'model__learning_rate': ['constant', 'optimal', 'invscaling', 'adaptive']
+            'loss': ['squared_error', 'huber', 'epsilon_insensitive', 'squared_epsilon_insensitive'],
+            'penalty': ['l1', 'l2', 'elasticnet'],
+            'alpha': [0.0001, 0.001, 0.01],
+            'learning_rate': ['constant', 'optimal', 'invscaling', 'adaptive']
         }
     },
 
     'Huber Regressor': {
         'model': HuberRegressor(),
         'params': {
-            'model__epsilon': [1.1, 1.35, 1.5],
-            'model__alpha': [0.0001, 0.001, 0.01],
-            'model__max_iter': [100, 200, 300]
+            'epsilon': [1.1, 1.35, 1.5],
+            'alpha': [0.0001, 0.001, 0.01],
+            'max_iter': [100, 200, 300]
         }
     },
 
     'Theil-Sen Regressor': {
         'model': TheilSenRegressor(random_state=42),
         'params': {
-            'model__max_subpopulation': [1000, 5000, 10000],
-            'model__n_subsamples': [None, 100, 200],
-            'model__max_iter': [100, 300, 500]
+            'max_subpopulation': [1000, 5000, 10000],
+            'n_subsamples': [None, 100, 200],
+            'max_iter': [100, 300, 500]
         }
     },
 
     'RANSAC Regressor': {
         'model': RANSACRegressor(random_state=42),
         'params': {
-            'model__min_samples': [None, 0.1, 0.5, 0.9],
-            'model__residual_threshold': [None, 1.0, 2.0],
-            'model__max_trials': [50, 100, 200]
+            'min_samples': [None, 0.1, 0.5, 0.9],
+            'residual_threshold': [None, 1.0, 2.0],
+            'max_trials': [50, 100, 200]
         }
     },
 
@@ -173,32 +173,32 @@ models = {
     'Decision Tree': {
         'model': DecisionTreeRegressor(random_state=42),
         'params': {
-            'model__criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
-            'model__max_depth': [None, 5, 10, 20, 30],
-            'model__min_samples_split': [2, 5, 10],
-            'model__min_samples_leaf': [1, 2, 4],
-            'model__max_features': ['sqrt', 'log2', None]
+            'criterion': ['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+            'max_depth': [None, 5, 10, 20, 30],
+            'min_samples_split': [2, 5, 10],
+            'min_samples_leaf': [1, 2, 4],
+            'max_features': ['sqrt', 'log2', None]
         }
     },
 
     'Random Forest': {
         'model': RandomForestRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [100, 200, 300],
-            'model__max_depth': [None, 10, 20, 30],
-            'model__min_samples_split': [2, 5, 10],
-            'model__min_samples_leaf': [1, 2, 4],
-            'model__max_features': ['sqrt', 'log2', None],
-            'model__bootstrap': [True, False]
+            'n_estimators': [100, 200, 300],
+            'max_depth': [None, 10, 20, 30],
+            'min_samples_split': [2, 5, 10],
+            'min_samples_leaf': [1, 2, 4],
+            'max_features': ['sqrt', 'log2', None],
+            'bootstrap': [True, False]
         }
     },
 
     'Extra Trees': {
         'model': ExtraTreesRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [100, 200],
-            'model__criterion': ['squared_error', 'absolute_error', 'friedman_mse', 'poisson'],
-            'model__max_features': ['sqrt', 'log2', None]
+            'n_estimators': [100, 200],
+            'criterion': ['squared_error', 'absolute_error', 'friedman_mse', 'poisson'],
+            'max_features': ['sqrt', 'log2', None]
         }
     },
 
@@ -206,67 +206,67 @@ models = {
     'Gradient Boosting': {
         'model': GradientBoostingRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [50, 100, 200],
-            'model__learning_rate': [0.01, 0.1, 0.2],
-            'model__max_depth': [3, 5, 7],
-            'model__subsample': [0.8, 1.0],
-            'model__min_samples_split': [2, 5]
+            'n_estimators': [50, 100, 200],
+            'learning_rate': [0.01, 0.1, 0.2],
+            'max_depth': [3, 5, 7],
+            'subsample': [0.8, 1.0],
+            'min_samples_split': [2, 5]
         }
     },
 
     'XGBoost': {
         'model': XGBRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [100, 200],
-            'model__learning_rate': [0.01, 0.1, 0.2],
-            'model__max_depth': [3, 6, 9],
-            'model__subsample': [0.8, 1.0],
-            'model__colsample_bytree': [0.8, 1.0],
-            'model__gamma': [0, 0.1, 0.2],
-            'model__reg_alpha': [0, 0.1, 1],
-            'model__reg_lambda': [0, 0.1, 1]
+            'n_estimators': [100, 200],
+            'learning_rate': [0.01, 0.1, 0.2],
+            'max_depth': [3, 6, 9],
+            'subsample': [0.8, 1.0],
+            'colsample_bytree': [0.8, 1.0],
+            'gamma': [0, 0.1, 0.2],
+            'reg_alpha': [0, 0.1, 1],
+            'reg_lambda': [0, 0.1, 1]
         }
     },
 
     'LightGBM': {
         'model': LGBMRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [100, 200],
-            'model__learning_rate': [0.01, 0.1, 0.2],
-            'model__num_leaves': [31, 63, 127],
-            'model__max_depth': [-1, 10, 20],
-            'model__min_child_samples': [20, 50],
-            'model__reg_alpha': [0, 0.1, 1],
-            'model__reg_lambda': [0, 0.1, 1]
+            'n_estimators': [100, 200],
+            'learning_rate': [0.01, 0.1, 0.2],
+            'num_leaves': [31, 63, 127],
+            'max_depth': [-1, 10, 20],
+            'min_child_samples': [20, 50],
+            'reg_alpha': [0, 0.1, 1],
+            'reg_lambda': [0, 0.1, 1]
         }
     },
 
     'CatBoost': {
         'model': CatBoostRegressor(random_state=42, verbose=0),
         'params': {
-            'model__iterations': [100, 200],
-            'model__learning_rate': [0.01, 0.1, 0.2],
-            'model__depth': [4, 6, 8],
-            'model__l2_leaf_reg': [1, 3, 5]
+            'iterations': [100, 200],
+            'learning_rate': [0.01, 0.1, 0.2],
+            'depth': [4, 6, 8],
+            'l2_leaf_reg': [1, 3, 5]
         }
     },
 
     'AdaBoost': {
         'model': AdaBoostRegressor(random_state=42),
         'params': {
-            'model__n_estimators': [50, 100, 200],
-            'model__learning_rate': [0.01, 0.1, 1.0],
-            'model__loss': ['linear', 'square', 'exponential']
+            'n_estimators': [50, 100, 200],
+            'learning_rate': [0.01, 0.1, 1.0],
+            'loss': ['linear', 'square', 'exponential']
         }
     },
 
     'Hist Gradient Boosting': {
         'model': HistGradientBoostingRegressor(random_state=42),
         'params': {
-            'model__learning_rate': [0.01, 0.1, 0.2],
-            'model__max_iter': [100, 200],
-            'model__max_depth': [None, 10, 20],
-            'model__min_samples_leaf': [20, 50, 100]
+            'learning_rate': [0.01, 0.1, 0.2],
+            'max_iter': [100, 200],
+            'max_depth': [None, 10, 20],
+            'min_samples_leaf': [20, 50, 100]
         }
     },
 
@@ -274,31 +274,31 @@ models = {
     'SVR': {
         'model': SVR(),
         'params': {
-            'model__C': [0.1, 1, 10, 100],
-            'model__kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
-            'model__gamma': ['scale', 'auto', 0.1, 1],
-            'model__degree': [2, 3, 4],  # For poly kernel
-            'model__epsilon': [0.01, 0.1, 0.5]
+            'C': [0.1, 1, 10, 100],
+            'kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
+            'gamma': ['scale', 'auto', 0.1, 1],
+            'degree': [2, 3, 4],
+            'epsilon': [0.01, 0.1, 0.5]
         }
     },
 
     'Linear SVR': {
         'model': LinearSVR(random_state=42),
         'params': {
-            'model__C': [0.1, 1, 10],
-            'model__loss': ['epsilon_insensitive', 'squared_epsilon_insensitive'],
-            'model__dual': [True, False],
-            'model__epsilon': [0.01, 0.1, 0.5]
+            'C': [0.1, 1, 10],
+            'loss': ['epsilon_insensitive', 'squared_epsilon_insensitive'],
+            'dual': [True, False],
+            'epsilon': [0.01, 0.1, 0.5]
         }
     },
 
     'NuSVR': {
         'model': NuSVR(),
         'params': {
-            'model__nu': [0.1, 0.5, 0.8],
-            'model__C': [0.1, 1, 10],
-            'model__kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
-            'model__gamma': ['scale', 'auto', 0.1, 1]
+            'nu': [0.1, 0.5, 0.8],
+            'C': [0.1, 1, 10],
+            'kernel': ['linear', 'rbf', 'poly', 'sigmoid'],
+            'gamma': ['scale', 'auto', 0.1, 1]
         }
     },
 
@@ -306,19 +306,19 @@ models = {
     'KNN Regressor': {
         'model': KNeighborsRegressor(),
         'params': {
-            'model__n_neighbors': [3, 5, 7, 9, 11],
-            'model__weights': ['uniform', 'distance'],
-            'model__algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
-            'model__p': [1, 2]  # 1: Manhattan, 2: Euclidean
+            'n_neighbors': [3, 5, 7, 9, 11],
+            'weights': ['uniform', 'distance'],
+            'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
+            'p': [1, 2]
         }
     },
 
     'Radius Neighbors Regressor': {
         'model': RadiusNeighborsRegressor(),
         'params': {
-            'model__radius': [1.0, 2.0, 5.0],
-            'model__weights': ['uniform', 'distance'],
-            'model__algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
+            'radius': [1.0, 2.0, 5.0],
+            'weights': ['uniform', 'distance'],
+            'algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute']
         }
     },
 
@@ -326,11 +326,11 @@ models = {
     'MLP Regressor': {
         'model': MLPRegressor(random_state=42, early_stopping=True),
         'params': {
-            'model__hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 50)],
-            'model__activation': ['relu', 'tanh', 'logistic'],
-            'model__alpha': [0.0001, 0.001, 0.01],
-            'model__learning_rate': ['constant', 'invscaling', 'adaptive'],
-            'model__learning_rate_init': [0.001, 0.01]
+            'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 50)],
+            'activation': ['relu', 'tanh', 'logistic'],
+            'alpha': [0.0001, 0.001, 0.01],
+            'learning_rate': ['constant', 'invscaling', 'adaptive'],
+            'learning_rate_init': [0.001, 0.01]
         }
     },
 
@@ -338,12 +338,12 @@ models = {
     'Gaussian Process': {
         'model': GaussianProcessRegressor(random_state=42),
         'params': {
-            'model__kernel': [None,
-                              RBF(),
-                              ConstantKernel() * RBF(),
-                              RationalQuadratic()],
-            'model__alpha': [1e-10, 1e-5, 1e-2],
-            'model__normalize_y': [True, False]
+            'kernel': [None,
+                      RBF(),
+                      ConstantKernel() * RBF(),
+                      RationalQuadratic()],
+            'alpha': [1e-10, 1e-5, 1e-2],
+            'normalize_y': [True, False]
         }
     },
 
@@ -351,26 +351,26 @@ models = {
     'Kernel Ridge': {
         'model': KernelRidge(),
         'params': {
-            'model__alpha': [0.1, 1.0, 10.0],
-            'model__kernel': ['linear', 'rbf', 'polynomial'],
-            'model__gamma': [None, 0.1, 1.0],
-            'model__degree': [2, 3, 4]
+            'alpha': [0.1, 1.0, 10.0],
+            'kernel': ['linear', 'rbf', 'polynomial'],
+            'gamma': [None, 0.1, 1.0],
+            'degree': [2, 3, 4]
         }
     },
 
     'PLS Regression': {
         'model': PLSRegression(),
         'params': {
-            'model__n_components': [1, 2, 3, 5],
-            'model__scale': [True, False],
-            'model__max_iter': [500, 1000]
+            'n_components': [1, 2, 3, 5],
+            'scale': [True, False],
+            'max_iter': [500, 1000]
         }
     },
 
     'Dummy Regressor': {
         'model': DummyRegressor(),
         'params': {
-            'model__strategy': ['mean', 'median', 'quantile', 'constant']
+            'strategy': ['mean', 'median', 'quantile', 'constant']
         }
     }
 }
